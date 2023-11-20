@@ -40,10 +40,10 @@ public class Task : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        workTimer += Time.deltaTime;
+        workTimer += (Time.deltaTime * SpeedUpgrade.GetMultiplier());
         if(workTimer >=1)//every second updates the task for the workers 
         {
-            taskProgress += (assignedWorkers.Count * SpeedUpgrade.GetMultiplier());
+            taskProgress += (assignedWorkers.Count );
             if (taskProgress >= taskReuirements)
             {
                 
