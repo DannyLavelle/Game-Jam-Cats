@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using TMPro;
-using UnityEditor.Experimental.GraphView;
+
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
@@ -27,7 +27,8 @@ public class Task : MonoBehaviour
    public CatData CatnipData;
     [SerializeField]
     public Slider progressSlider;
-
+    public Upgrades ProductionUpgrade;
+    public Upgrades SpeedUpgrade;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +43,7 @@ public class Task : MonoBehaviour
         workTimer += Time.deltaTime;
         if(workTimer >=1)//every second updates the task for the workers 
         {
-            taskProgress += assignedWorkers.Count;
+            taskProgress += (assignedWorkers.Count * SpeedUpgrade.GetMultiplier());
             if (taskProgress >= taskReuirements)
             {
                 
@@ -222,13 +223,17 @@ public class Task : MonoBehaviour
         switch (taskType)
         {
             case TaskType.Mice:
-            miceData.amount += 1;
+            miceData.amount += (1 + ProductionUpgrade.GetMultiplier());
             break;
             case TaskType.Catnip:
-            CatnipData.amount += 1;
+            CatnipData.amount += (1 + ProductionUpgrade.GetMultiplier());
             break;
             case TaskType.Recruiting:
-            Instantiate(catWorker);
+                for(int i = 0; i < (1+ ProductionUpgrade.GetMultiplier()); i++)
+            {
+                Instantiate(catWorker);
+            }
+            
             break;
         }
         DecreaseMotivation();

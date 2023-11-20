@@ -14,14 +14,15 @@ public class CatScript : MonoBehaviour
     public bool willAbandon = false;
     public CatData CatnipStash;
     public CatData WorkerAmount;
-
+    public Upgrades MotivationIncrease;
     // Start is called before the first frame update
 
     void Start()
     {
         updateWorkerSO();
         //WorkerAmount.amount++;
-        motivation = maxMotivation;
+        
+        motivation = Mathf.CeilToInt(maxMotivation * MotivationIncrease.GetMultiplier());
     }
 
     // Update is called once per frame
@@ -41,7 +42,7 @@ public class CatScript : MonoBehaviour
         if (CatnipStash.amount > 0)
         {
             CatnipStash.amount--;
-            motivation = maxMotivation;
+            motivation = Mathf.CeilToInt(maxMotivation * MotivationIncrease.GetMultiplier());
         }
         else
         {

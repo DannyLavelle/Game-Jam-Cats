@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: WorkerNumbers
   m_EditorClassIdentifier: 
   Name: 
-  amount: 0
+  amount: 1

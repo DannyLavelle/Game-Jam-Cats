@@ -51,3 +51,4 @@ MonoBehaviour:
   willAbandon: 0
   CatnipStash: {fileID: 11400000, guid: f8e4e395cbcf5b446967e1c471d4eb96, type: 2}
   WorkerAmount: {fileID: 11400000, guid: 0a169122401225348a4c107a69cba57c, type: 2}
+  MotivationIncrease: {fileID: 11400000, guid: 4bf7d05f8b094b84a8a677cb84356883, type: 2}

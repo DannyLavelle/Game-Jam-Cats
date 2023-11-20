@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Catnip
   m_EditorClassIdentifier: 
   Name: Catnip
-  amount: 10
+  amount: 0
